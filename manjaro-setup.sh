@@ -2,26 +2,25 @@
 echo "Installing updates"
 sudo pacman -Syu
 
-# Install gnome-tweaks
-echo "Installing gnome-tweaks"
-sudo pacman -S gnome-tweaks
+# ssh-keygen
+echo "Generating ssh keys"
+ssh-keygen
+
 
 # Install git
-echo "Installing git"
-sudo pacman -S --needed base-devel git
+echo "Installing packages"
+sudo pacman -S --needed base-devel git gnome-tweaks snapd
 
+# Enable snapd
+echo "Enable snapd package manager"
+sudo systemctl enable --now snapd.socket
+sudo ln -s /var/lib/snapd/snap /snap
 
 # Configure git
 echo "Configuring git..."
 git config --global user.email "mr.esenyazov@gmail.com"
 git config --global user.name "Almaz Yessenyazov"
 
-
-# Install snapd
-echo "Installing snapd package manager"
-sudo pacman -S snapd
-sudo systemctl enable --now snapd.socket
-sudo ln -s /var/lib/snapd/snap /snap
 
 # Install yay
 echo "Installing yay package manager"
