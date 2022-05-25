@@ -11,7 +11,6 @@ echo "Installing git"
 sudo pacman -S --needed base-devel git
 
 
-
 # Configure git
 echo "Configuring git..."
 git config --global user.email "mr.esenyazov@gmail.com"
